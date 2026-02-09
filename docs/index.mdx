@@ -1,0 +1,57 @@
+---
+title: F5 Distributed Cloud Documentation
+description: Central documentation hub for the F5 Distributed Cloud ecosystem
+template: splash
+sidebar:
+  hidden: true
+hero:
+  title: F5 Distributed Cloud Documentation
+  tagline: Your central hub for all F5 XC tools, APIs, and guides
+  actions:
+    - text: Get Started
+      link: 01-getting-started/
+      icon: right-arrow
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Tools & Integrations
+
+<CardGrid>
+  <LinkCard title="xcsh CLI" description="Command-line interface for managing F5 Distributed Cloud" href="https://robinmordasiewicz.github.io/f5xc-xcsh/" />
+  <LinkCard title="VS Code Extension" description="Manage 236+ F5 XC resource types from Visual Studio Code" href="https://robinmordasiewicz.github.io/vscode-f5xc-tools/" />
+  <LinkCard title="Plugin Marketplace" description="Automate F5 XC operations with Claude Code and intelligent browser automation" href="https://robinmordasiewicz.github.io/f5xc-marketplace/" />
+</CardGrid>
+
+## MCP Servers
+
+<CardGrid>
+  <LinkCard title="API MCP Server" description="1,500+ API tools with dynamic discovery and 95%+ token savings" href="https://robinmordasiewicz.github.io/f5xc-api-mcp/" />
+  <LinkCard title="Cloud Status MCP" description="Real-time F5 Cloud operational status monitoring with 6 comprehensive tools" href="https://robinmordasiewicz.github.io/f5xc-cloudstatus-mcp/" />
+</CardGrid>
+
+## Libraries & APIs
+
+<CardGrid>
+  <LinkCard title="Auth Library" description="XDG-compliant profile management and credential handling for TypeScript/Node.js" href="https://robinmordasiewicz.github.io/f5xc-auth/" />
+  <LinkCard title="API Fixed Specs" description="Validated and reconciled F5 Distributed Cloud OpenAPI specifications" href="https://robinmordasiewicz.github.io/f5xc-api-fixed/" />
+</CardGrid>
+
+## Guides
+
+<CardGrid>
+  <LinkCard title="DDoS Administration" description="Configure and manage DDoS protection on F5 Distributed Cloud" href="https://robinmordasiewicz.github.io/f5xc-ddos-administration-guide/" />
+</CardGrid>
+
+## Platform
+
+<CardGrid stagger>
+  <Card title="Docs Builder" icon="setting">
+    Containerized Astro + Starlight build system for branded documentation sites.
+    [View documentation](https://robinmordasiewicz.github.io/f5xc-docs-builder/)
+  </Card>
+  <Card title="Docs Theme" icon="document">
+    Shared branding, fonts, and styling for all F5 XC documentation sites.
+    [View documentation](https://robinmordasiewicz.github.io/f5xc-docs-theme/)
+  </Card>
+</CardGrid>

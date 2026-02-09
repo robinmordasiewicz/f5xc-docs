@@ -1,0 +1,7 @@
+{
+  "repository": {
+    "description": "Central documentation hub for the F5 Distributed Cloud ecosystem",
+    "homepage": "https://robinmordasiewicz.github.io/f5xc-docs/"
+  },
+  "topics": ["f5xc", "documentation"]
+}
