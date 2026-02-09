@@ -30,10 +30,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --quiet; then
+          git add docs/llms.txt docs/llms-full.txt 2>/dev/null || true
+          if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
+          git reset HEAD -- . > /dev/null
 
           # Ensure standing issue #8 is open for linked-issue check
           ISSUE_STATE=$(gh issue view 8 --json state -q '.state')
