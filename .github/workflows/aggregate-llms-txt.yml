@@ -9,6 +9,8 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+  issues: write
 
 jobs:
   aggregate:
@@ -24,14 +26,32 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/aggregate-llms-txt.sh docs
 
-      - name: Commit and push
+      - name: Create PR if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          # Ensure standing issue #8 is open for linked-issue check
+          ISSUE_STATE=$(gh issue view 8 --json state -q '.state')
+          if [ "$ISSUE_STATE" = "CLOSED" ]; then
+            gh issue reopen 8
+          fi
+
+          BRANCH="chore/update-llms-txt-$(date +%Y%m%d)"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/llms.txt docs/llms-full.txt 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore: update federated llms.txt"
-            git push
+          git checkout -b "$BRANCH"
+          git add docs/llms.txt docs/llms-full.txt
+          git commit -m "chore: update federated llms.txt"
+          git push -u origin "$BRANCH" --force
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --json number -q '.[0].number' || echo "")
+          if [ -z "$EXISTING_PR" ]; then
+            gh pr create \
+              --title "chore: update federated llms.txt" \
+              --body "Automated update of federated llms.txt from child documentation sites. Closes #8" \
+              --label "automated"
           fi
