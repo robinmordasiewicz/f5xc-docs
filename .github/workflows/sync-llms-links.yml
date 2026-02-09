@@ -1,0 +1,73 @@
+name: Sync LLMs Links
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync-llms-links]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Fetch docs-sites.json from template repo
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+        run: |
+          gh api repos/robinmordasiewicz/f5xc-template/contents/.github/config/docs-sites.json \
+            --jq '.content' | base64 --decode > /tmp/docs-sites.json
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if diff -q docs/llms-links.json /tmp/docs-sites.json > /dev/null 2>&1; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create issue and PR
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+        run: |
+          BRANCH="chore/sync-llms-links-$(date +%Y%m%d)"
+
+          ISSUE_URL=$(gh issue create \
+            --title "chore: sync llms-links.json from template" \
+            --body "Automated sync of \`docs/llms-links.json\` from the template repo's \`docs-sites.json\` registry.")
+          ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -o '[0-9]*$')
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          cp /tmp/docs-sites.json docs/llms-links.json
+          git add docs/llms-links.json
+          git commit -m "chore: sync llms-links.json from template
+
+          Closes #${ISSUE_NUMBER}"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "chore: sync llms-links.json from template" \
+            --body "$(cat <<EOF
+          ## Summary
+          - Syncs \`docs/llms-links.json\` with the authoritative \`docs-sites.json\` from [f5xc-template](https://github.com/robinmordasiewicz/f5xc-template)
+          - Zero GitHub API discovery calls — single \`gh api\` fetch per run
+
+          Closes #${ISSUE_NUMBER}
+          EOF
+          )" \
+            --base main \
+            --head "$BRANCH"
+
+          gh pr merge "$BRANCH" --squash --auto
