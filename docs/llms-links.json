@@ -1,0 +1,17 @@
+[
+  {
+    "label": "F5 XC Authentication Guide",
+    "url": "https://robinmordasiewicz.github.io/f5xc-auth/llms-full.txt",
+    "description": "Authentication and authorization for F5 Distributed Cloud"
+  },
+  {
+    "label": "F5 XC DDoS Administration Guide",
+    "url": "https://robinmordasiewicz.github.io/f5xc-ddos-administration-guide/llms-full.txt",
+    "description": "DDoS protection administration for F5 Distributed Cloud"
+  },
+  {
+    "label": "F5 XC Marketplace Guide",
+    "url": "https://robinmordasiewicz.github.io/f5xc-marketplace/llms-full.txt",
+    "description": "F5 Distributed Cloud marketplace services"
+  }
+]
