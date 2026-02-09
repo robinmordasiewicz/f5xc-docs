@@ -54,6 +54,5 @@ jobs:
           if [ -z "$EXISTING_PR" ]; then
             gh pr create \
               --title "chore: update federated llms.txt" \
-              --body "Automated update of federated llms.txt from child documentation sites. Closes #8" \
-              --label "automated"
+              --body "Automated update of federated llms.txt from child documentation sites. Closes #8"
           fi
