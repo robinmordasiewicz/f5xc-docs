@@ -1,57 +1,21 @@
 ---
 title: Cloud Documentation
-description: Central documentation hub for the Cloud
+description: Central documentation hub
 template: splash
 hero:
   title: Cloud Documentation
-  tagline: Your central hub for all tools, APIs, and guides
+  tagline: This documentation hub aggregates all the tools, libraries, and administration guides.
 ---
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-SaaS-based platform for deploying, securing, and operating applications across multi-cloud and edge environments. This documentation hub aggregates all the tools, libraries, and guides built around the platform.
-
-## Tools & Integrations
-
-Terminal users can start with the **xcsh CLI**, VS Code users get full resource management from their editor, and the **Plugin Marketplace** brings AI-powered automation.
-
 <CardGrid>
   <LinkCard title="xcsh CLI" description="Command-line interface for managing Cloud" href="https://robinmordasiewicz.github.io/f5xc-xcsh/" />
-  <LinkCard title="VS Code Extension" description="Manage 236+ Cloud resource types from Visual Studio Code" href="https://robinmordasiewicz.github.io/vscode-f5xc-tools/" />
-  <LinkCard title="Plugin Marketplace" description="Automate Cloud operations with Claude Code and intelligent browser automation" href="https://robinmordasiewicz.github.io/f5xc-marketplace/" />
-</CardGrid>
-
-## MCP Servers
-
-Integrate with AI coding assistants like Claude, Copilot, and others through Model Context Protocol servers.
-
-<CardGrid>
-  <LinkCard title="API MCP Server" description="1,500+ API tools with dynamic discovery and 95%+ token savings" href="https://robinmordasiewicz.github.io/f5xc-api-mcp/" />
-  <LinkCard title="Cloud Status MCP" description="Real-time Cloud operational status monitoring with 6 comprehensive tools" href="https://robinmordasiewicz.github.io/f5xc-cloudstatus-mcp/" />
-</CardGrid>
-
-## Libraries & APIs
-
-For developers building on the credential management and validated OpenAPI specifications.
-
-<CardGrid>
+  <LinkCard title="Terraform Provider and MCP" description="Use infrastructure as code to provision and manage Cloud infrastructure" href="https://robinmordasiewicz.github.io/terraform-provider-xc/" />
+  <LinkCard title="VS Code Extension" description="Manage your Cloud platform with a Visual Studio Code extension" href="https://robinmordasiewicz.github.io/vscode-f5xc-tools/" />
+  <LinkCard title="Claude Marketplace" description="Automate Cloud operations with Claude Code and intelligent browser automation" href="https://robinmordasiewicz.github.io/f5xc-marketplace/" />
+  <LinkCard title="API MCP Server" description="" href="https://robinmordasiewicz.github.io/f5xc-api-mcp/" />
   <LinkCard title="Auth Library" description="XDG-compliant profile management and credential handling for TypeScript/Node.js" href="https://robinmordasiewicz.github.io/f5xc-auth/" />
-  <LinkCard title="API Fixed Specs" description="Validated and reconciled Cloud OpenAPI specifications" href="https://robinmordasiewicz.github.io/f5xc-api-fixed/" />
-</CardGrid>
-
-## Administration Guides
-
-Administration guides for network engineers configuring Cloud services.
-
-<CardGrid>
-  <LinkCard title="DDoS Administration" description="Administration Guide - DDoS" href="https://robinmordasiewicz.github.io/f5xc-ddos-administration-guide/" />
-</CardGrid>
-
-## Platform
-
-The shared build system and theme powering all documentation sites.
-
-<CardGrid>
-  <LinkCard title="Docs Builder" icon="setting" description="Containerized Astro + Starlight build system for branded documentation sites." href="https://robinmordasiewicz.github.io/f5xc-docs-builder" />
-  <LinkCard title="Docs Theme" icon="document" description="Shared branding, fonts, and styling for all Cloud documentation sites." href="https://robinmordasiewicz.github.io/f5xc-docs-theme" />
+  <LinkCard title="API Specs" description="Validated and Enriched OpenAPI specifications" href="https://robinmordasiewicz.github.io/f5xc-api-enriched/" />
+  <LinkCard title="Administration Guides" description="Administration Guide - DDoS" href="https://robinmordasiewicz.github.io/f5xc-ddos-administration-guide/" />
 </CardGrid>
