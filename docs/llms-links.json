@@ -1,17 +1,47 @@
 [
   {
-    "label": "Authentication API",
+    "label": "F5 XC Authentication Guide",
     "url": "https://robinmordasiewicz.github.io/f5xc-auth/llms-full.txt",
-    "description": "Authentication and authorization for Cloud"
+    "description": "Shared authentication library for F5 Distributed Cloud MCP servers"
   },
   {
-    "label": "Administration Guide - DDoS",
+    "label": "F5 XC DDoS Administration Guide",
     "url": "https://robinmordasiewicz.github.io/f5xc-ddos-administration-guide/llms-full.txt",
-    "description": "DDoS protection administration for Cloud"
+    "description": "Administration guide for configuring and managing DDoS protection"
   },
   {
-    "label": "Marketplace Guide",
+    "label": "F5 Distributed Cloud Plugin Marketplace",
     "url": "https://robinmordasiewicz.github.io/f5xc-marketplace/llms-full.txt",
-    "description": "Cloud marketplace services"
+    "description": "Automate F5 XC operations with Claude Code plugins"
+  },
+  {
+    "label": "xcsh CLI",
+    "url": "https://robinmordasiewicz.github.io/f5xc-xcsh/llms-full.txt",
+    "description": "Command-line interface for managing F5 Distributed Cloud"
+  },
+  {
+    "label": "F5 XC API Fixed Specs",
+    "url": "https://robinmordasiewicz.github.io/f5xc-api-fixed/llms-full.txt",
+    "description": "Validated and reconciled F5 Distributed Cloud OpenAPI specifications"
+  },
+  {
+    "label": "F5 Cloud Status MCP Server",
+    "url": "https://robinmordasiewicz.github.io/f5xc-cloudstatus-mcp/llms-full.txt",
+    "description": "MCP server for monitoring F5 Distributed Cloud service status"
+  },
+  {
+    "label": "F5XC API MCP Server",
+    "url": "https://robinmordasiewicz.github.io/f5xc-api-mcp/llms-full.txt",
+    "description": "MCP server exposing F5 Distributed Cloud APIs to AI assistants"
+  },
+  {
+    "label": "f5xc Docs Builder",
+    "url": "https://robinmordasiewicz.github.io/f5xc-docs-builder/llms-full.txt",
+    "description": "Containerized Astro + Starlight documentation build system"
+  },
+  {
+    "label": "XC Docs Theme",
+    "url": "https://robinmordasiewicz.github.io/f5xc-docs-theme/llms-full.txt",
+    "description": "Shared branding and styling for F5 Distributed Cloud documentation sites"
   }
 ]
